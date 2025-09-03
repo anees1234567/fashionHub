@@ -47,3 +47,16 @@ export const useNotification = () => {
   if (!context) throw new Error("useNotification must be used inside NotificationProvider");
   return context;
 };
+
+
+ <div className="flex items-center space-x-8">
+        {/* Logo */}
+        <div className="text-2xl font-bold text-blue-900 italic">FashionHub</div>
+
+        <ul className="flex space-x-8 text-blue-900 font-medium ">
+          <li className="cursor-pointer hover:text-blue-600">Category</li>
+          <li className="cursor-pointer hover:text-blue-600">Brand</li>
+          <li className="cursor-pointer hover:text-blue-600">Contact</li>
+          <li className="cursor-pointer hover:text-blue-600">FAQ's</li>
+        </ul>
+      </div>

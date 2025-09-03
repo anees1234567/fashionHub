@@ -9,15 +9,18 @@ type AuthProviderProps = {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [userData,setUserData]=useState<UserType|null>(null)
 
 
-useEffect(() => {
-  const storedUser = getItem("user");
-  if (storedUser) {
-    setIsAuthenticated(true);
-  }
-  setIsLoading(false); 
-}, []);
+    useEffect(() => {
+        const storedUser = getItem("user");
+        if (storedUser) {
+            console.log(storedUser)
+            setIsAuthenticated(true);
+            setUserData(storedUser);
+        }
+        setIsLoading(false);
+    }, []);
 
   const login = (userData: UserType) => {
     setIsAuthenticated(true);
@@ -29,12 +32,13 @@ useEffect(() => {
     removeItem("user")
   };
 
+
   const value: AuthContextType = {
     isAuthenticated,
     login,
     logout,
-    isLoading
-    
+    isLoading,
+    userData
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

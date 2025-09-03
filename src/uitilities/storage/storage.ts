@@ -1,3 +1,5 @@
+import { UserType } from "../../Pages/Auth/service";
+
 export const storageKey = {
   TOKEN: "auth_token",
   REFRESH_TOKEN: "refresh_token",
@@ -12,10 +14,10 @@ export const setItem = (key: string, value: any) => {
   }
 };
 
-export const getItem = <T>(key: string): T | null => {
+export const getItem = <T>(key: string): UserType | null => {
   try {
     const item = localStorage.getItem(key);
-    return item ? (JSON.parse(item) as T) : null;
+    return item ? (JSON.parse(item) as UserType) : null;
   } catch (error) {
     console.error("Error reading from localStorage", error);
     return null;

@@ -31,113 +31,97 @@ export default function SignupPage() {
     register(data)
   };
 
-  return (
-    <div className="flex ">
-
-      <div className="w-[60%] h-screen relative">
-        <img
-          src={signup}
-          alt="Signup"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute bottom-10 left-10 max-w-lg text-white">
-          <p className="text-lg font-mono mb-4 font-">
-            “Figma ipsum component variant main layer. Create flatten create
-            effect move strikethrough. Union export plugin bullet effect hand
-            arrange align.”
-          </p>
-          <div>
-            <p className="font-semibold font-mono">Pam Hand</p>
-            <p className="text-sm">pam.hand@gmail.com</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="w-[40%] flex items-center justify-center p-12 bg-white shadow-lg">
-        <div className="w-full max-w-sm ">
-          <h2 className="text-2xl text-center font-bold text-gray-900 mb-2">
-            Create an Account
-          </h2>
-          <p className="text-gray-500 text-center mb-8">
-            Are you ready to join us? Let’s create Account
-          </p>
-
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
-            <CustomFormField
-              control={control}
-              element="input"
-              name="name"
-              fieldProps={{ label: "Full name",placeholder:"john doe", fullWidth: true  }}
-              rules={{}}
-            />
-
-            <CustomFormField
-              control={control}
-              element="input"
-              name="email"
-              fieldProps={{ label: "Email",placeholder:"user@gmail.com", type: "email",InputLabelProps: { shrink: false },fullWidth: true }}
-              rules={{}}
-            />
-
-            <CustomFormField
-              control={control}
-              element="input"
-              name="dob"
-              fieldProps={{
-                label: "Date Field",
-                type: "date",
-                fullWidth: true,
-                InputLabelProps: { shrink: true }
-              }}
-              rules={{}}
-            />
-
-            <CustomFormField
-              control={control}
-              element="input"
-              name="mobile"
-              fieldProps={{ label: "Mobile",placeholder:"+91 9XXXXXXX0", fullWidth: true ,InputLabelProps: { shrink: true },}}
-              rules={{}}
-            />
-
-            <CustomFormField
-              control={control}
-              element="input"
-              name="password"
-              fieldProps={{
-                label: "Password",
-                type: "password",
-                placeholder:"Enter password ",
-                fullWidth: true,
-              }}
-              rules={{}}
-            />
-
-            <Button
-              type="submit"
-              variant="contained"
-              fullWidth
-              className="!bg-black !text-white !rounded-md !py-3 hover:!bg-gray-800 transition"
-              endIcon={
-                isPending && <CircularProgress size={20} color="inherit" />
-              }
-            >
-              Create Account
-            </Button>
-          </form>
-
-          <p className="text-sm text-center text-gray-600 mt-6">
-            Already have an account?{" "}
-            <button
-              type="button"
-              onClick={() => navigate("/login")}
-              className="font-semibold text-black"
-            >
-              Sign-In
-            </button>
-          </p>
+  
+return (
+  <div className="flex flex-col md:flex-row h-screen">
+    <div className="hidden md:block md:w-3/5 h-screen relative">
+      <img
+        src={signup}
+        alt="Signup"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute bottom-10 left-10 max-w-lg text-white">
+        <p className="text-lg font-mono mb-4">
+          “Figma ipsum component variant main layer. Create flatten create
+          effect move strikethrough. Union export plugin bullet effect hand
+          arrange align.”
+        </p>
+        <div>
+          <p className="font-semibold font-mono">Pam Hand</p>
+          <p className="text-sm">pam.hand@gmail.com</p>
         </div>
       </div>
     </div>
-  );
+
+    <div className="w-full md:w-2/5 flex items-center justify-center p-8 md:p-12 bg-white shadow-lg">
+      <div className="w-full max-w-sm">
+        <h2 className="text-2xl text-center font-bold text-gray-900 mb-2">
+          Create an Account
+        </h2>
+        <p className="text-gray-500 text-center mb-8">
+          Are you ready to join us? Let’s create Account
+        </p>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+          <CustomFormField
+            control={control}
+            element="input"
+            name="name"
+            fieldProps={{ label: "Full name", placeholder: "john doe", fullWidth: true }}
+            rules={{}}
+          />
+          <CustomFormField
+            control={control}
+            element="input"
+            name="email"
+            fieldProps={{ label: "Email", placeholder: "user@gmail.com", type: "email", InputLabelProps: { shrink: false }, fullWidth: true }}
+            rules={{}}
+          />
+          <CustomFormField
+            control={control}
+            element="input"
+            name="dob"
+            fieldProps={{ label: "Date Field", type: "date", fullWidth: true, InputLabelProps: { shrink: true } }}
+            rules={{}}
+          />
+          <CustomFormField
+            control={control}
+            element="input"
+            name="mobile"
+            fieldProps={{ label: "Mobile", placeholder: "+91 9XXXXXXX0", fullWidth: true, InputLabelProps: { shrink: true } }}
+            rules={{}}
+          />
+          <CustomFormField
+            control={control}
+            element="input"
+            name="password"
+            fieldProps={{ label: "Password", type: "password", placeholder: "Enter password", fullWidth: true }}
+            rules={{}}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            className="!bg-black !text-white !rounded-md !py-3 hover:!bg-gray-800 transition"
+            endIcon={isPending && <CircularProgress size={20} color="inherit" />}
+          >
+            Create Account
+          </Button>
+        </form>
+
+        <p className="text-sm text-center text-gray-600 mt-6">
+          Already have an account?{" "}
+          <button
+            type="button"
+            onClick={() => navigate("/login")}
+            className="font-semibold text-black"
+          >
+            Sign-In
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
 }
