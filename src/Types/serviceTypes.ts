@@ -11,3 +11,9 @@ export const emptyError:ResponseType<null> = {
   statusCode: '500',
   responseMessage: "Something went wrong"
 }
+export const NotFoundError:ResponseType<null> = {
+  response: null,
+  responseIndicator:"fail",
+  statusCode: '401',
+  responseMessage: "invalid email Address or password"
+}

@@ -2,7 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_API_URL: string;
-  readonly VITE_OTHER_KEY?: string; // optional
+  readonly [key: string]: string | undefined;
 }
 
 interface ImportMeta {

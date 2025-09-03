@@ -41,7 +41,7 @@ export type AutocompleteType = Omit<
 
 export type PropType = CustomFormFieldType | CustomAutocompleteType;
 export const maxStringSize = 254;
-const types = ["text", "password", "email", "number"];
+const types = ["text", "password", "email", "number","date"];
 
 const CustomFormField = memo((props: PropType) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -83,6 +83,7 @@ const CustomFormField = memo((props: PropType) => {
               }}
               InputProps={{
                 ...fieldProps.InputProps,
+                
                 endAdornment:
                   fieldProps.type === "password" ? (
                     <IconButton onClick={() => setShowPassword(!showPassword)}>
@@ -100,19 +101,20 @@ const CustomFormField = memo((props: PropType) => {
                   ...fieldProps.InputProps?.inputProps,
                 },
                 sx: {
-                  height: '40px', // Reduced input height
+                  height: '40px', 
                   '& .MuiInputBase-input': {
-                    padding: '8px 12px', // Reduced padding for smaller height
-                    fontSize: '0.875rem', // Smaller font size
+                    padding: '8px 12px', 
+                    fontSize: '0.875rem', 
                   },
                 },
               }}
               InputLabelProps={{
+                shrink:true,
                 sx: {
-                  fontSize: '0.875rem', // Smaller label font size
-                  top: '-4px', // Adjust label position for smaller field
+                  fontSize: '0.875rem', 
+                  top: '-4px', 
                   '&.Mui-focused, &.MuiFormLabel-filled': {
-                    transform: 'translate(14px, -9px) scale(0.75)', // Adjust label transform
+                    transform: 'translate(14px, -9px) scale(0.75)', 
                   },
                 },
                 ...(types.includes(fieldProps.type as string)
@@ -121,7 +123,7 @@ const CustomFormField = memo((props: PropType) => {
               }}
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  borderRadius: '8px', // Slightly rounded corners
+                  borderRadius: '8px', 
                   '& fieldset': {
                     borderColor: 'gray.300',
                   },
@@ -133,7 +135,7 @@ const CustomFormField = memo((props: PropType) => {
                   },
                 },
                 '& .MuiFormHelperText-root': {
-                  fontSize: '0.75rem', // Smaller helper text
+                  fontSize: '0.75rem', 
                   marginTop: '2px',
                 },
               }}
@@ -170,16 +172,16 @@ const CustomFormField = memo((props: PropType) => {
                   InputProps={{
                     ...params.InputProps,
                     sx: {
-                      height: '40px', // Reduced input height
+                      height: '40px', 
                       '& .MuiInputBase-input': {
-                        padding: '8px 12px', // Reduced padding
-                        fontSize: '0.875rem', // Smaller font size
+                        padding: '8px 12px', 
+                        fontSize: '0.875rem', 
                       },
                     },
                   }}
                   InputLabelProps={{
                     sx: {
-                      fontSize: '0.875rem', // Smaller label font size
+                      fontSize: '0.875rem', 
                       top: '-4px',
                       '&.Mui-focused, &.MuiFormLabel-filled': {
                         transform: 'translate(14px, -9px) scale(0.75)',

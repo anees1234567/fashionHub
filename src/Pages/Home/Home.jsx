@@ -1,9 +1,11 @@
 import React from 'react'
-import Autocomplete from '../../AutoComplete/Autocomplete'
 import { Button } from '@mui/material'
+import { useAuth } from '../../Auth/useAuth'
 
 const Home = () => {
   const [show,setShow] = React.useState(false)
+  const {isAuthenticated}=useAuth()
+
 
   return (
  <>
