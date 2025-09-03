@@ -1,8 +1,7 @@
 import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
-import Home from "../Pages/Home/Home";
 import PageNotFound from "../ErrorPages/PageNotFound";
-import { authRoutes } from "./Authroutes";
-import { JSX, Suspense } from "react";
+
+import {  Suspense } from "react";
 import { ErrorElement } from "../ErrorPages/Error";
 import ProtectedRoute from "../Auth/ProtectedRoutes";
 import ProductList from "../Pages/products/Index";
@@ -50,16 +49,20 @@ const routelist: RouteObject[] = [
         path: "products",
         element: (
           <ProtectedRoute>
+            <Suspense fallback={<Loadingpage/>}>
             <ProductList />
+            </Suspense>
           </ProtectedRoute>
         ),
       },
       {
         path: "profile",
         element: (
-          <Suspense fallback={<Loadingpage />}>
-            <ProfilePage />
-          </Suspense>
+          <ProtectedRoute>
+            <Suspense fallback={<Loadingpage/>}>
+            <ProfilePage/>
+            </Suspense>
+          </ProtectedRoute>
         ),
       },
       {
